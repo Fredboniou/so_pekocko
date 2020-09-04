@@ -6,7 +6,7 @@ const bodyParser = require("body-parser"); //import package body-parser pour gé
 
 const mongoose = require("mongoose"); // import du package mongoose pour les interactions avec mongoDB
 
-mongoose.connect('mongodb+srv://FredBoniou:Myriam26121983.@cluster0.vqduv.mongodb.net/test?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://FredBoniou:Myriam26121983.@cluster0.vqduv.mongodb.net/test?retryWrites=true&w=majority', //connexion a mongoDB
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
