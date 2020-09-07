@@ -31,5 +31,11 @@ router.put("/:id", (req, res, next) => { // mise à jour/modification de la sauc
         .catch(error => res.status(400).json({error}));
 });
 
+router.delete("/:id", (req, res, next) => { //suppression d'une sauce
+    Sauce.deleteOne({_id: req.params.id})
+        .then(() => res.status(200).json({message: "Sauce supprimée !"}))
+        .catch(error => res.status(400).json({error}));
+});
+
 module.exports = router;
 
