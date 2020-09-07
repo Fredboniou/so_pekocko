@@ -6,6 +6,8 @@ const bodyParser = require("body-parser"); //import package body-parser pour gé
 
 const mongoose = require("mongoose"); // import du package mongoose pour les interactions avec mongoDB
 
+const sauceRoutes = require("./routes/sauces"); //import du routeur
+
 mongoose.connect('mongodb+srv://FredBoniou:Myriam26121983.@cluster0.vqduv.mongodb.net/test?retryWrites=true&w=majority', //connexion a mongoDB
   { useNewUrlParser: true,
     useUnifiedTopology: true })
@@ -20,6 +22,8 @@ app.use((req,res,next) => {
 });
 
 app.use(bodyParser.json()); //méthode JSON pour transformer la requête en objet JS utilisable
+
+app.use("/api/sauces", sauceRoutes); // import du routeur de sauces.js
 
 app.use((req, res) => {
     res.json({ message: "et aller, go pour le p6 !!!! on lache rien !!!" });

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose"); //import mongoose
 
 const sauceSchema = mongoose.Schema({ //méthode Schema de mongoose pour créer un schéma de données qui contient les champs souhaités pour chaque sauces
-    userId = { type: String, required: true },
+    userId : { type: String, required: true },
     name: { type: String, required: true },
     manufacturer: { type: String, required: true },
     description: { type: String, required: true },
