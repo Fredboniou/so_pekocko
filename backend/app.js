@@ -8,6 +8,8 @@ const mongoose = require("mongoose"); // import du package mongoose pour les int
 
 const sauceRoutes = require("./routes/sauces"); //import du routeur
 
+const userRoutes = require("./routes/user"); //import du user
+
 mongoose.connect('mongodb+srv://FredBoniou:Myriam26121983.@cluster0.vqduv.mongodb.net/test?retryWrites=true&w=majority', //connexion a mongoDB
   { useNewUrlParser: true,
     useUnifiedTopology: true })
@@ -24,6 +26,8 @@ app.use((req,res,next) => {
 app.use(bodyParser.json()); //méthode JSON pour transformer la requête en objet JS utilisable
 
 app.use("/api/sauces", sauceRoutes); // import du routeur de sauces.js
+
+app.use("/api/auth", userRoutes);
 
 app.use((req, res) => {
     res.json({ message: "et aller, go pour le p6 !!!! on lache rien !!!" });
