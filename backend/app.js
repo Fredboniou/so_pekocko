@@ -6,6 +6,8 @@ const bodyParser = require("body-parser"); //import package body-parser pour gé
 
 const mongoose = require("mongoose"); // import du package mongoose pour les interactions avec mongoDB
 
+const path = require("path");
+
 const sauceRoutes = require("./routes/sauces"); //import du routeur
 
 const userRoutes = require("./routes/user"); //import du user
@@ -24,6 +26,8 @@ app.use((req,res,next) => {
 });
 
 app.use(bodyParser.json()); //méthode JSON pour transformer la requête en objet JS utilisable
+
+app.use("/images", express.static(path.join(__dirname, "images")));
 
 app.use("/api/sauces", sauceRoutes); // import du routeur de sauces.js
 
