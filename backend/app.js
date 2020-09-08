@@ -30,7 +30,7 @@ app.use("/api/sauces", sauceRoutes); // import du routeur de sauces.js
 app.use("/api/auth", userRoutes);
 
 app.use((req, res) => {
-    res.json({ message: "et aller, go pour le p6 !!!! on lache rien !!!" });
+    res.json({ message: "et aller, go pour le p6 !!!! Plus que 2 !!!" });
 });
 
 module.exports = app; //export appli pour y accéder dans les autres fichiers, notamment server.js 
