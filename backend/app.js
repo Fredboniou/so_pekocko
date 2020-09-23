@@ -12,6 +12,8 @@ const sauceRoutes = require("./routes/sauces"); //import du routeur
 
 const userRoutes = require("./routes/user"); //import du user
 
+const helmet = require("helmet"); //import package helmet pour définir les en-têtes http
+
 mongoose.connect('mongodb+srv://FredBoniou:Myriam26121983.@cluster0.vqduv.mongodb.net/test?retryWrites=true&w=majority', //connexion a mongoDB
   { useNewUrlParser: true,
     useUnifiedTopology: true })
@@ -32,6 +34,8 @@ app.use("/images", express.static(path.join(__dirname, "images")));
 app.use("/api/sauces", sauceRoutes); // import du routeur de sauces.js
 
 app.use("/api/auth", userRoutes);
+
+app.use(helmet());
 
 app.use((req, res) => {
     res.json({ message: "et aller, go pour le p6 !!!! Plus que 2 !!!" });
