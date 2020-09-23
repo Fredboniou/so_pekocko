@@ -8,15 +8,15 @@ const mongoose = require("mongoose"); // import du package mongoose pour les int
 
 const path = require("path");
 
+require("dotenv").config(); //dotenv pour sécurisation infos admin
+
+const helmet = require("helmet"); //import package helmet pour définir les en-têtes http
+
 const sauceRoutes = require("./routes/sauces"); //import du routeur
 
 const userRoutes = require("./routes/user"); //import du user
 
-const helmet = require("helmet"); //import package helmet pour définir les en-têtes http
-
-require("dotenv").config(); //dotenv pour sécurisation infos admin
-
-mongoose.connect('mongodb+srv://FredBoniou:Myriam26121983.@cluster0.vqduv.mongodb.net/test?retryWrites=true&w=majority', //connexion a mongoDB
+mongoose.connect(process.env.DB_CONN, //connexion a mongoDB
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
