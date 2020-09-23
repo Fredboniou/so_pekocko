@@ -14,9 +14,9 @@ const userRoutes = require("./routes/user"); //import du user
 
 const helmet = require("helmet"); //import package helmet pour définir les en-têtes http
 
-const dotenv = require("dotenv-webpack"); //package dotenv pour sécurisation mdp admin
+require("dotenv").config(); //dotenv pour sécurisation infos admin
 
-mongoose.connect(process.env.DB_admin, //connexion a mongoDB
+mongoose.connect('mongodb+srv://FredBoniou:Myriam26121983.@cluster0.vqduv.mongodb.net/test?retryWrites=true&w=majority', //connexion a mongoDB
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
